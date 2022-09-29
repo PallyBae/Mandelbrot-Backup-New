@@ -12,7 +12,7 @@ ComplexPlane::ComplexPlane(float aspectRatio)
 
     //  setSize of the m_view variable to BASE_WIDTH, -BASE_HEIGHT*m_aspectRatio
     //  Negative size for the height will invert the vertical axis
-    m_view.setSize(BASE_WIDTH, -BASE_HEIGHT*m_aspectRatio);
+    m_view.setSize(BASE_WIDTH, -BASE_HEIGHT * m_aspectRatio);
 
     //  setCenter of the m_view variable to 0.0, 0.0
     m_view.setCenter(0.0, 0.0);
@@ -97,21 +97,17 @@ void ComplexPlane::loadText(sf::Text& text)
 size_t ComplexPlane::countIterations(sf::Vector2f coord)
 {
     size_t iteration_count = 0;
-    size_t final_iteration_count = 0;
     double real_number = coord.x;
     double imaginary_number = coord.y;
     std::complex <double> c (real_number, imaginary_number);
     std::complex <double> z (0.0,0.0);
-    while (iteration_count < MAX_ITER || final_iteration_count > 0) ///!!! Infinite Loop!!! 
+
+    while (iteration_count < MAX_ITER && abs(z) < 2.0)
     {
         z = z*z + c;
         iteration_count ++;
-        if(abs(z) >= 2.0)
-        {
-            final_iteration_count = iteration_count;
-        }
     }
-    return final_iteration_count;
+    return iteration_count;
 }
 
 //  Iteration To RGB Color Function
