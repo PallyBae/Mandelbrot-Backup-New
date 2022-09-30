@@ -174,23 +174,23 @@ void ComplexPlane::iterationsToRGB(size_t count, sf::Uint8& r, sf::Uint8& g, sf:
     //  nth range of colors
     else if (count <= 259 && count >= 196)
     {
-        r = 19 + 236*((float_count - 131)/64);
-        g = 11 + 244*((float_count - 131)/64);
-        b = 69 + 186*((float_count - 131)/64);
+        r = 58 + 197*((float_count - 131)/64);
+        g = 40 + 215*((float_count - 131)/64);
+        b = 146 + 109*((float_count - 131)/64);
     }
 
     else if (count <= 195 && count >= 131)
     {
-        r = 116 - 97*((float_count - 131)/64);
-        g = 28 - 17*((float_count - 131)/64);
-        b = 19 + 50*((float_count - 131)/64);
+        r = 204 - 146*((float_count - 131)/64);
+        g = 64 - 24*((float_count - 131)/64);
+        b = 17 + 129*((float_count - 131)/64);
     }
 
     else if (count <= 130 && count >= 66)
     {
-        r = 255 - 139*((float_count - 66)/64);
-        g = 255 - 227*((float_count - 66)/64);
-        b = 255 - 236*((float_count - 66)/64);
+        r = 255 - 51*((float_count - 66)/64);
+        g = 255 - 191*((float_count - 66)/64);
+        b = 255 - 238*((float_count - 66)/64);
     }
 
     //  nth range of colors
