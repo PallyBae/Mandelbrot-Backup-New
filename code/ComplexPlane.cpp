@@ -160,6 +160,8 @@ void ComplexPlane::iterationsToRGB(size_t count, sf::Uint8& r, sf::Uint8& g, sf:
 //  Iteration To RGB Color Function
 void ComplexPlane::iterationsToRGB(size_t count, sf::Uint8& r, sf::Uint8& g, sf::Uint8& b)
 {
+    double float_count = count;
+
     //  Default condition
     if (count == MAX_ITER)
     {
@@ -170,66 +172,32 @@ void ComplexPlane::iterationsToRGB(size_t count, sf::Uint8& r, sf::Uint8& g, sf:
     }
 
     //  nth range of colors
-    else if (count <= 63 && count >= 57)
+    else if (count <= 259 && count >= 196)
     {
-        r = 255*((count-57)/6);
-        g = 255;
-        b = 255*((count-57)/6);
+        r = 19 + 236*((float_count - 131)/64);
+        g = 11 + 244*((float_count - 131)/64);
+        b = 69 + 186*((float_count - 131)/64);
+    }
+
+    else if (count <= 195 && count >= 131)
+    {
+        r = 116 - 97*((float_count - 131)/64);
+        g = 28 - 17*((float_count - 131)/64);
+        b = 19 + 50*((float_count - 131)/64);
+    }
+
+    else if (count <= 130 && count >= 66)
+    {
+        r = 255 - 139*((float_count - 66)/64);
+        g = 255 - 227*((float_count - 66)/64);
+        b = 255 - 236*((float_count - 66)/64);
     }
 
     //  nth range of colors
-    else if (count <= 56 && count >= 49)
+    else if (count <= 65 && count >= 1)
     {
-        r = 255*(1 - (count-49)/7);
-        g = 255;
-        b = 255*(0);
-    }
-
-    //  nth range of colors
-    else if (count <= 48 && count >= 41)
-    {
-        r = 255;
-        g = 255*((count-41)/7);
-        b = 255*(0);
-    }
-
-    //  nth range of colors
-    else if (count <= 40 && count >= 33)
-    {
-        r = 255;
-        g = 255*(0);
-        b = 255*(1 - (count-33)/7);
-    }
-
-    //  nth range of colors
-    else if (count <= 32 && count >= 25)
-    {
-        r = 255*((count-25)/7);
-        g = 255*(0);
-        b = 255;
-    }
-
-    //  nth range of colors
-    else if (count <= 24 && count >= 17)
-    {
-        r = 255*(0);
-        g = 255*(1 - (count-17)/7);
-        b = 255;
-    }
-
-    //  nth range of colors
-    else if (count <= 16 && count >= 9)
-    {
-        r = 255*(0);
-        g = 255;
-        b = 255*((count-9)/7);
-    }
-
-    //  nth range of colors
-    else if (count <= 8 && count >= 1)
-    {
-        r = 255*(1- (count-1)/7);
-        g = 255;
-        b = 255*(1- (count-1)/7);
+        r = 37 + 218*((float_count - 1)/64);
+        g = 114 + 141*((float_count - 1)/64);
+        b = 207 + 48*((float_count - 1)/64);
     }
 }
