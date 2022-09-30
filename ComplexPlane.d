@@ -1,1 +1,1 @@
-obj/ComplexPlane.o: code/ComplexPlane.cpp code/ComplexPlane.h
+ComplexPlane.o: code/ComplexPlane.cpp code/ComplexPlane.h

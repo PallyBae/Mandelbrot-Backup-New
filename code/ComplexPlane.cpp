@@ -110,6 +110,7 @@ size_t ComplexPlane::countIterations(sf::Vector2f coord)
     return iteration_count;
 }
 
+/*
 //  Iteration To RGB Color Function
 void ComplexPlane::iterationsToRGB(size_t count, sf::Uint8& r, sf::Uint8& g, sf::Uint8& b)
 {
@@ -152,5 +153,83 @@ void ComplexPlane::iterationsToRGB(size_t count, sf::Uint8& r, sf::Uint8& g, sf:
         r = 255;
         g = 255*(1- (count-1)/15);
         b = 255;
+    }
+}
+*/
+
+//  Iteration To RGB Color Function
+void ComplexPlane::iterationsToRGB(size_t count, sf::Uint8& r, sf::Uint8& g, sf::Uint8& b)
+{
+    //  Default condition
+    if (count == MAX_ITER)
+    {
+        //Sets the color to BLACK
+        r = 0;
+        g = 0;
+        b = 0;
+    }
+
+    //  nth range of colors
+    else if (count <= 63 && count >= 57)
+    {
+        r = 255*((count-57)/6);
+        g = 255;
+        b = 255*((count-57)/6);
+    }
+
+    //  nth range of colors
+    else if (count <= 56 && count >= 49)
+    {
+        r = 255*(1 - (count-49)/7);
+        g = 255;
+        b = 255*(0);
+    }
+
+    //  nth range of colors
+    else if (count <= 48 && count >= 41)
+    {
+        r = 255;
+        g = 255*((count-41)/7);
+        b = 255*(0);
+    }
+
+    //  nth range of colors
+    else if (count <= 40 && count >= 33)
+    {
+        r = 255;
+        g = 255*(0);
+        b = 255*(1 - (count-33)/7);
+    }
+
+    //  nth range of colors
+    else if (count <= 32 && count >= 25)
+    {
+        r = 255*((count-25)/7);
+        g = 255*(0);
+        b = 255;
+    }
+
+    //  nth range of colors
+    else if (count <= 24 && count >= 17)
+    {
+        r = 255*(0);
+        g = 255*(1 - (count-17)/7);
+        b = 255;
+    }
+
+    //  nth range of colors
+    else if (count <= 16 && count >= 9)
+    {
+        r = 255*(0);
+        g = 255;
+        b = 255*((count-9)/7);
+    }
+
+    //  nth range of colors
+    else if (count <= 8 && count >= 1)
+    {
+        r = 255*(1- (count-1)/7);
+        g = 255;
+        b = 255*(1- (count-1)/7);
     }
 }
