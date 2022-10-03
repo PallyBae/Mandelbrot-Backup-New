@@ -144,6 +144,9 @@ int main()
                 //  setMouseLocation on the ComplexPLane object to store this coordinate
                 //  This will be used later to display the mouse coordinates as it moves
                 c_plane.setMouseLocation(mouse);
+
+                c_plane.loadText(instruction_text);
+
                 break;
             }
                 

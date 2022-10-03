@@ -12,7 +12,7 @@ ComplexPlane::ComplexPlane(float aspectRatio)
 
     //  setSize of the m_view variable to BASE_WIDTH, -BASE_HEIGHT*m_aspectRatio
     //  Negative size for the height will invert the vertical axis
-    m_view.setSize(BASE_WIDTH, -BASE_HEIGHT * m_aspectRatio);
+    m_view.setSize(BASE_WIDTH, BASE_HEIGHT * m_aspectRatio);
 
     //  setCenter of the m_view variable to 0.0, 0.0
     m_view.setCenter(0.0, 0.0);
@@ -171,33 +171,59 @@ void ComplexPlane::iterationsToRGB(size_t count, sf::Uint8& r, sf::Uint8& g, sf:
         b = 0;
     }
 
-    //  nth range of colors
-    else if (count <= 259 && count >= 196)
+    //  Green to white
+    else if (count <= 259 && count >= 160)
     {
-        r = 58 + 197*((float_count - 131)/64);
-        g = 40 + 215*((float_count - 131)/64);
-        b = 146 + 109*((float_count - 131)/64);
+        r = 74 + 181*((float_count - 160)/99);
+        g = 240 + 15*((float_count - 160)/99);
+        b = 105 + 150*((float_count - 160)/99);
     }
 
-    else if (count <= 195 && count >= 131)
+    //  Purple to Green
+    else if (count <= 159 && count >= 94)
     {
-        r = 204 - 146*((float_count - 131)/64);
-        g = 64 - 24*((float_count - 131)/64);
-        b = 17 + 129*((float_count - 131)/64);
+        r = 58 + 16*((float_count - 94)/65);
+        g = 40 + 200*((float_count - 94)/65);
+        b = 146 - 41*((float_count - 94)/65);
     }
 
-    else if (count <= 130 && count >= 66)
+    //  White to Purple
+    else if (count <= 93 && count >= 63)
     {
-        r = 255 - 51*((float_count - 66)/64);
-        g = 255 - 191*((float_count - 66)/64);
-        b = 255 - 238*((float_count - 66)/64);
+        r = 255 - 197*((float_count - 63)/30);
+        g = 255 - 215*((float_count - 63)/30);
+        b = 255 - 109*((float_count - 63)/30);
     }
 
-    //  nth range of colors
-    else if (count <= 65 && count >= 1)
+    //  Pink to White
+    else if (count <= 62 && count >= 42)
     {
-        r = 37 + 218*((float_count - 1)/64);
-        g = 114 + 141*((float_count - 1)/64);
-        b = 207 + 48*((float_count - 1)/64);
+        r = 255 - 0*((float_count - 42)/20);
+        g = 29 + 226*((float_count - 42)/20);
+        b = 175 + 80*((float_count - 42)/20);
+    }
+
+    //  Turqoise to Pink
+    else if (count <= 41 && count >= 31)
+    {
+        r = 0 + 255*((float_count - 31)/10);
+        g = 155 - 126*((float_count - 31)/10);
+        b = 142 + 33*((float_count - 31)/10);
+    }
+
+    //  Purple to Turqoise
+    else if (count <= 30 && count >= 15)
+    {
+        r = 94 - 94*((float_count - 15)/15);
+        g = 21 + 134*((float_count - 15)/15);
+        b = 192 - 50*((float_count - 15)/15);
+    }
+
+    //  Red to Purple
+    else if (count <= 14 && count >= 1)
+    {
+        r = 255 - 161*((float_count - 1)/13);
+        g = 60 - 39*((float_count - 1)/13);
+        b = 0 + 192*((float_count - 1)/13);
     }
 }
