@@ -23,7 +23,7 @@ class ComplexPlane
         void setCenter(sf::Vector2f coord);
         sf::View getView();
         void setMouseLocation(sf::Vector2f coord);
-        void loadText(sf::Text& text);
+        void loadText(sf::Text& text, sf::Vector2f coord);
         static size_t countIterations(sf::Vector2f coord);
         static void iterationsToRGB(size_t count, sf::Uint8& r, sf::Uint8& g, sf::Uint8& b);
 

@@ -139,14 +139,11 @@ int main()
             {
                 //  Use mapPixelToCoords to find the Vector2f coordinate
                 //  in the ComplexPlane View that corresponds to the screen mouse location
-                mouse = window.mapPixelToCoords(sf::Vector2i(event.mouseButton.x, event.mouseButton.y)), c_plane.getView();
+                mouse = window.mapPixelToCoords({ event.mouseMove.x, event.mouseMove.y }, c_plane.getView());
 
                 //  setMouseLocation on the ComplexPLane object to store this coordinate
                 //  This will be used later to display the mouse coordinates as it moves
                 c_plane.setMouseLocation(mouse);
-
-                c_plane.loadText(instruction_text);
-
                 break;
             }
                 
@@ -217,7 +214,7 @@ int main()
             state_variable = DISPLAYING;
 
             //  Call loadText from the ComplexPlane object
-            c_plane.loadText(instruction_text);
+            c_plane.loadText(instruction_text, mouse);
             textBoxBg.setSize({ instruction_text.getLocalBounds().width + textBoxBgBorder*2 , instruction_text.getLocalBounds().height + textBoxBgBorder*2} );
         }
 
@@ -237,10 +234,15 @@ int main()
         //  Draw the VertexArray
         window.draw(vertex_array);
 
-        //Draw the text background
-        window.draw(textBoxBg);
+        //Draw the instruction_text and textBoxbg
+        //  Call loadText from the ComplexPlane object
+        c_plane.loadText(instruction_text, mouse);
 
-        //  Draw the Text
+        instruction_text.setPosition( { currentWindowWidth * 0.02f, currentWindowHeight * 0.02f } );
+
+        textBoxBg.setPosition( {instruction_text.getPosition().x - TEXTBOX_BKG_W_ALIGN - textBoxBgBorder, instruction_text.getPosition().y + TEXTBOX_BKG_H_ALIGN - textBoxBgBorder});
+        textBoxBg.setSize({ instruction_text.getLocalBounds().width + textBoxBgBorder*2 , instruction_text.getLocalBounds().height + textBoxBgBorder*2} );
+        window.draw(textBoxBg);
         window.draw(instruction_text);
 
         //  Display

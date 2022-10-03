@@ -79,14 +79,14 @@ void ComplexPlane::setMouseLocation(sf::Vector2f coord)
 }
 
 //  Text Loading Function
-void ComplexPlane::loadText(sf::Text& text)
+void ComplexPlane::loadText(sf::Text& text, sf::Vector2f coord)
 {
     //  Creating a local stringstream variable
     std::stringstream ss;
 
     //  Pass the text input I want into the local variable
     ss << "Mandelbrot Set" << std::endl << "Center: (" << m_view.getCenter().x << "," << m_view.getCenter().y << ")" <<
-    std::endl << "Cursor: (" << m_mouseLocation.x << "," << m_mouseLocation.y << ")" << std::endl <<
+    std::endl << "Cursor: (" << coord.x << "," << coord.y << ")" << std::endl <<
     "Left-click to Zoom in" << std::endl << "Right-click to Zoom out";
 
     //  setString the stringstream variable into the text object
